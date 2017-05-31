@@ -34,7 +34,7 @@
         "East US 2"
       ],
       "metadata": {
-        "description": "Restricts choices to where premium storage is located in the US."
+        "description": "Restrict choices"
       }
     },
     "windowsOSVersion": {
@@ -49,10 +49,10 @@
         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
       }
     },
-    "sizeOfEachDataDiskInGB": {
+    "sizeOfDiskInGB": {
       "type": "string",
       "metadata": {
-        "description": "Size of each disk in GB"
+        "description": "Size of the empty data disk in GB"
       }
     }
   },
@@ -73,7 +73,7 @@
     "virtualNetworkName": "MyVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-    "dataDisk1VhdName":    "[concat('http://',parameters('newStorageAccountName'),'.blob.core.w    indows.net/',variables('vmStorageAccountContainerName'),'/',variable    s('vmName'),'dataDisk1.vhd')]"
+    "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
   },
   "resources": [
     {
@@ -179,13 +179,13 @@
           },
           "dataDisks": [
             {
-            "name": "datadisk1",
-            "diskSizeGB": "[parameters('sizeOfDiskInGB')]",
-            "lun": 0,
-            "vhd": {
-              "uri": "[variables('dataDisk1VhdName')]"
-            },
-            "createOption":"Empty"
+              "name": "datadisk1",
+              "diskSizeGB": "[parameters('sizeOfDiskInGB')]",
+              "lun": 0,
+              "vhd": {
+                "Uri": "[variables('dataDisk1VhdName')]"
+              },
+              "createOption": "Empty"
             }
           ]
         },

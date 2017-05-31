@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {
-      "value": "wvstore1"
+      "value": "dmgstore1"
     },
     "adminUsername": {
       "value": "admin123"
@@ -12,12 +12,12 @@
       "value": "Passw0rd!"
     },
     "dnsNameForPublicIP": {
-      "value": "wv7645"
+      "value": "dmg6685"
     },
     "location": {
       "value": "West US"
     },
-    "sizeOfDiskInGB":{
+    "sizeOfDiskInGB": {
       "value": "20"
     }
   }
